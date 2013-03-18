@@ -10,7 +10,7 @@
             <generator strategy="NONE" />
         </id>
 
-        <field name="values" type="text" nullable="false" column="configvalues" />
+        <field name="value" type="text" nullable="false" column="configvalues" />
 
     </mapped-superclass>
 
