@@ -36,7 +36,12 @@ class ConfigValuesMapper implements ConfigValuesMapperInterface
 
     public function save($configValues)
     {
-        $this->em->persist($configValues);
+        $entity = $this->find($configValues->getID());
+        if ( $entity instanceof ConfigValues ) {
+            $entity->setValues($configValues->getValues());
+        }
+
+        $this->em->persist($entity ?: $configValues);
         $this->em->flush();
     }
 
